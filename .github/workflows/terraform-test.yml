@@ -2,23 +2,17 @@ name: Terraform Test
 
 on:
   push:
-    paths:
-      - '**.tf'
-      - '.github/workflows/terraform-test.yml'
-  pull_request:
-    paths:
-      - '**.tf'
-      - '.github/workflows/terraform-test.yml'
+    branches: [ "main" ]
 
 jobs:
   terraform-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Set up Terraform
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
