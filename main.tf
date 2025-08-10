@@ -79,8 +79,8 @@ resource "azurerm_mssql_firewall_rule" "firewall" {
 }
 
 resource "azurerm_app_service_source_control" "aassc" {
-  app_id   = azurerm_linux_web_app.alwa.id
-  repo_url = var.repo_URL
-  branch   = "main"
+  app_id                 = azurerm_linux_web_app.alwa.id
+  repo_url               = var.repo_URL
+  branch                 = "main"
+  use_manual_integration = true
 }
-
